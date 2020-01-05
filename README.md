@@ -10,9 +10,13 @@ $ npm i word-decliner
 According to http://morpher.ru/DemoUA.aspx?s=Микола%20Петренко
 ``` js
 const wordDecliner = require('word-decliner');
+// Or
+const { uaDecliner } = require('word-decliner');
 
 (async () => {
   console.log(await wordDecliner('ua', 'Микола Петренко'));
+  // The same as
+  console.log(await uaDecliner('Микола Петренко'));
   /*
     [
       { case: 'називний', value: 'Микола Петренко' },
@@ -27,7 +31,7 @@ const wordDecliner = require('word-decliner');
 })();
 ```
 
-Available language identifiers: 'ru', 'ua', 'kz'.
+Available language identifiers: **ru**, **ua**, **kz**.
 
 ### Taking exact case
 According to http://morpher.ru/Demo.aspx?s=Киев
