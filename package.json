@@ -1,14 +1,18 @@
 {
   "name": "123",
   "version": "1.0.0",
-  "description": "",
+  "description": "Declines names or even phrases via Morpher service.",
   "main": "123.js",
   "scripts": {},
-  "keywords": [],
+  "keywords": [
+    "decline word",
+    "Morpher"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
-    "cheerio": "^1.0.0-rc.3"
+    "cheerio": "^1.0.0-rc.3",
+    "elapsing-time": "^1.2.1"
   }
 }
