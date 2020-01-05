@@ -12,7 +12,7 @@ According to http://morpher.ru/DemoUA.aspx?s=Микола%20Петренко
 const wordDecliner = require('word-decliner');
 
 (async () => {
-  console.log(await wordDecliner('ua', 'ключ'));
+  console.log(await wordDecliner('ua', 'Микола Петренко'));
   /*
     [
       { case: 'називний', value: 'Микола Петренко' },
@@ -27,7 +27,7 @@ const wordDecliner = require('word-decliner');
 })();
 ```
 
-Available languages: ['ru', 'ua', 'kz'].
+Available language identifiers: 'ru', 'ua', 'kz'.
 
 ### Taking exact case
 According to http://morpher.ru/Demo.aspx?s=Киев
