@@ -1,15 +1,23 @@
 {
   "name": "word-decliner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Declines names or even phrases via Morpher service.",
   "main": "wordDecliner.js",
-  "scripts": {},
   "keywords": [
     "decline word",
     "Morpher"
   ],
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurKa/word-decliner.git"
+  },
   "author": "ArthurKa",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurKa/word-decliner/issues"
+  },
+  "homepage": "https://github.com/ArthurKa/word-decliner#readme",
   "dependencies": {
     "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.3"
