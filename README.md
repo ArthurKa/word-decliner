@@ -39,9 +39,12 @@ According to http://morpher.ru/Demo.aspx?s=Киев
 const wordDecliner = require('word-decliner');
 
 (async () => {
-  console.log(await wordDecliner('ru', 'Киев', 'називний'));  // { case: 'именительный', value: 'Киев', plural: 'Киевы' }
-  console.log(await wordDecliner('ru', 'Киев', 'орудний'));   // { case: 'творительный', value: 'Киевом', plural: 'Киевами' }
-  console.log(await wordDecliner('ua', 'Київ', 'к'));         // { case: 'кличний', value: 'Києве' }
+  console.log(await wordDecliner('ru', 'Киев', 'називний'));
+  // { case: 'именительный', value: 'Киев', plural: 'Киевы' }
+  console.log(await wordDecliner('ru', 'Киев', 'орудний'));
+  // { case: 'творительный', value: 'Киевом', plural: 'Киевами' }
+  console.log(await wordDecliner('ua', 'Київ', 'к'));
+  // { case: 'кличний', value: 'Києве' }
   console.log(await wordDecliner('kz', 'Киев', 'жатыс'));
   /*
     {
@@ -66,8 +69,10 @@ const wordDecliner = require('word-decliner');
 const { ruDecliner, uaDecliner, kzDecliner } = require('word-decliner');
 
 (async () => {
-  console.log(await ruDecliner('ключ', 'д'));   // { case: 'дательный', value: 'ключу', plural: 'ключам' }
-  console.log(await uaDecliner('ключ', 'д'));   // { case: 'давальний', value: 'ключу' }
+  console.log(await ruDecliner('ключ', 'д'));
+  // { case: 'дательный', value: 'ключу', plural: 'ключам' }
+  console.log(await uaDecliner('ключ', 'д'));
+  // { case: 'давальний', value: 'ключу' }
   console.log(await kzDecliner('ключ', 'д'));
   /*
     {
