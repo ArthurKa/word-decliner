@@ -1,11 +1,17 @@
-# word-decliner
+# word-decliner@1.0.6
+
+[![Dependency status](https://img.shields.io/librariesio/release/npm/word-decliner/1.0.6)](https://libraries.io/npm/word-decliner/1.0.6)
+[![Known vulnerabilities](https://snyk.io/test/npm/word-decliner/1.0.6/badge.svg)](https://snyk.io/test/npm/word-decliner/1.0.6)
+[![Install size](https://packagephobia.now.sh/badge?p=word-decliner@1.0.6)](https://packagephobia.now.sh/result?p=word-decliner@1.0.6)
+[![Version](https://img.shields.io/badge/npm-v1.0.6-blue.svg)](https://www.npmjs.com/package/word-decliner/v/1.0.6)
+[![Total downloads](https://img.shields.io/npm/dt/word-decliner?label=total%20downloads)](https://www.npmjs.com/package/word-decliner)
 
 Helps you to decline names or even phrases via Morpher service (http://morpher.ru/Demo.aspx) in three languages: Russian, Ukrainian and Kazakh.
 
 ## Installation
 `word-decliner` is available via npm:
 ``` bash
-$ npm i word-decliner
+$ npm i word-decliner@1.0.6
 ```
 
 ## Usage
