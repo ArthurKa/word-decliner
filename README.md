@@ -1,3 +1,5 @@
+# word-decliner
+
 Helps you to decline names or even phrases via Morpher service (http://morpher.ru/Demo.aspx) in three languages: Russian, Ukrainian and Kazakh.
 
 ## Installation
@@ -34,12 +36,16 @@ const { uaDecliner } = require('word-decliner');
 Available language identifiers: **ru**, **ua**, **kz**.
 
 ### Taking exact case
-According to http://morpher.ru/Demo.aspx?s=Киев
+According to:
+- http://morpher.ru/Demo.aspx?s=Киев
+- http://morpher.ru/DemoUA.aspx?s=Київ
+- http://morpher.ru/DemoKZ.aspx?s=Киев
+
 ``` js
 const wordDecliner = require('word-decliner');
 
 (async () => {
-  console.log(await wordDecliner('ru', 'Киев', 'називний'));
+  console.log(await wordDecliner('ru', 'Киев', 'именительный'));
   // { case: 'именительный', value: 'Киев', plural: 'Киевы' }
   console.log(await wordDecliner('ru', 'Киев', 'орудний'));
   // { case: 'творительный', value: 'Киевом', plural: 'Киевами' }
@@ -94,8 +100,8 @@ const { ruDecliner, uaDecliner, kzDecliner } = require('word-decliner');
 
 ### All requests are fully cached
 ``` js
-const elapsingTime = require('elapsing-time');
 const { uaDecliner } = require('word-decliner');
+const elapsingTime = require('elapsing-time');
 
 const timer = new elapsingTime();
 
@@ -126,5 +132,5 @@ const timer = new elapsingTime();
 No testing functionality provided.
 
 ---
-Your improve suggestions and bug reports are welcome any time.
 
+Your improve suggestions and bug reports are welcome any time.
