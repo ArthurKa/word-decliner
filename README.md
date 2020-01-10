@@ -1,12 +1,13 @@
 [![All dependencies](https://img.shields.io/librariesio/release/npm/word-decliner/1.0.8?label=all%20dependencies)](https://libraries.io/npm/word-decliner/1.0.8)
-[![Vulnerabilities](https://snyk.io/test/npm/word-decliner/1.0.8/badge.svg)](https://snyk.io/test/npm/word-decliner/1.0.8)
-[![Install size](https://packagephobia.now.sh/badge?p=word-decliner@1.0.8)](https://packagephobia.now.sh/result?p=word-decliner@1.0.8)
+[![Known vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/word-decliner@1.0.8?label=known%20vulnerabilities)](https://snyk.io/test/npm/word-decliner/1.0.8)
 [![NPM-version](https://img.shields.io/badge/npm-v1.0.8-blue.svg)](https://www.npmjs.com/package/word-decliner/v/1.0.8)
+[![Install size](https://packagephobia.now.sh/badge?p=word-decliner@1.0.8)](https://packagephobia.now.sh/result?p=word-decliner@1.0.8)
 [![Total downloads](https://img.shields.io/npm/dt/word-decliner?label=total%20downloads)](https://npm-stat.com/charts.html?package=word-decliner)
 
 # word-decliner@1.0.8
 
-Helps you to decline names or even phrases via Morpher service (http://morpher.ru/Demo.aspx) in three languages: Russian, Ukrainian and Kazakh.
+Helps you to decline words such as names, single or even combination of words via Morpher service located on http://morpher.ru/Demo.aspx in three available languages: Russian, Ukrainian and Kazakh.\
+Maybe it works for some other languages, who knows.
 
 ## Installation
 `word-decliner` is available via npm:
