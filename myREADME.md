@@ -126,3 +126,6 @@ const timer = new elapsingTime();
 ```
 
 <footerNoTesting>
+
+<seeAlsoTitle>
+- [decline-word](<npmjs-com>/package/decline-word)

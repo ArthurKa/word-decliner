@@ -1,7 +1,7 @@
 {
   "name": "word-decliner",
-  "version": "1.0.9",
-  "description": "Declines names or even phrases via Morpher service.",
+  "version": "1.0.10",
+  "description": "Declines words such as names, single or even combination of words via Morpher service.",
   "main": "wordDecliner.js",
   "keywords": [
     "decline word",
@@ -12,7 +12,10 @@
     "type": "git",
     "url": "git+https://github.com/ArthurKa/word-decliner.git"
   },
-  "author": "ArthurKa",
+  "author": {
+    "name": "ArthurKa",
+    "email": "arthur.katruk@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ArthurKa/word-decliner/issues"
