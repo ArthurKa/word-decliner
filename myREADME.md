@@ -9,7 +9,6 @@ Maybe it works for some other languages, who knows.
 According to http://morpher.ru/DemoUA.aspx?s=Микола%20Петренко
 ``` js
 const wordDecliner = require('word-decliner');
-// Or
 const { uaDecliner } = require('word-decliner');
 
 (async () => {
@@ -125,7 +124,9 @@ const timer = new elapsingTime();
 })();
 ```
 
-<footerNoTesting>
+<noTesting>
 
 <seeAlsoTitle>
 - [decline-word](<npmjs-com>/package/decline-word)
+
+<suggestions>

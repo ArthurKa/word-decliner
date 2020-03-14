@@ -1,6 +1,6 @@
 {
   "name": "word-decliner",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Declines words such as names, single or even combination of words via Morpher service.",
   "main": "wordDecliner.js",
   "keywords": [

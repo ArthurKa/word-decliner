@@ -1,10 +1,10 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/word-decliner/1.0.10?style=flat-square "All dependencies of word-decliner@1.0.10")](https://libraries.io/npm/word-decliner/1.0.10)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/word-decliner@1.0.10?style=flat-square "Reported vulnerabilities of word-decliner@1.0.10")](https://snyk.io/test/npm/word-decliner/1.0.10)
-[![NPM-version](https://img.shields.io/badge/npm-v1.0.10-blue.svg?style=flat-square "Current NPM-version")](https://www.npmjs.com/package/word-decliner/v/1.0.10)
-[![Install size](https://flat.badgen.net/packagephobia/install/word-decliner@1.0.10?label=size 'Install size of word-decliner@1.0.10')](https://packagephobia.now.sh/result?p=word-decliner@1.0.10)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/word-decliner/1.0.11?style=flat-square "All dependencies of word-decliner@1.0.11")](https://libraries.io/npm/word-decliner/1.0.11)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/word-decliner@1.0.11?style=flat-square "Reported vulnerabilities of word-decliner@1.0.11")](https://snyk.io/test/npm/word-decliner/1.0.11)
+[![NPM-version](https://img.shields.io/badge/npm-v1.0.11-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/word-decliner/v/1.0.11)
+[![Install size](https://flat.badgen.net/packagephobia/install/word-decliner@1.0.11?label=size 'Install size of word-decliner@1.0.11')](https://packagephobia.now.sh/result?p=word-decliner@1.0.11)
 [![Total downloads](https://img.shields.io/npm/dt/word-decliner?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=word-decliner)
 
-# word-decliner@1.0.10
+# word-decliner@1.0.11
 
 Helps you to decline words such as names, single or even combination of words via Morpher service located on http://morpher.ru/Demo.aspx in three available languages: Russian, Ukrainian and Kazakh.\
 Maybe it works for some other languages, who knows.
@@ -12,14 +12,13 @@ Maybe it works for some other languages, who knows.
 ## Installation
 `word-decliner` is available via npm:
 ``` bash
-$ npm i word-decliner@1.0.10
+$ npm i word-decliner@1.0.11
 ```
 
 ## Usage
 According to http://morpher.ru/DemoUA.aspx?s=Микола%20Петренко
 ``` js
 const wordDecliner = require('word-decliner');
-// Or
 const { uaDecliner } = require('word-decliner');
 
 (async () => {
@@ -138,9 +137,9 @@ const timer = new elapsingTime();
 ## Testing
 No testing functionality provided.
 
+## See also
+- [decline-word](https://www.npmjs.com/package/decline-word)
+
 ---
 
 Your improve suggestions and bug reports are welcome any time.
-
-## See also
-- [decline-word](https://www.npmjs.com/package/decline-word)
