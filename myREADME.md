@@ -8,8 +8,8 @@ Maybe it works for some other languages, who knows.
 ## Usage
 According to http://morpher.ru/DemoUA.aspx?s=Микола%20Петренко
 ``` js
-const wordDecliner = require('word-decliner');
-const { uaDecliner } = require('word-decliner');
+const wordDecliner = require('.');
+const { uaDecliner } = require('.');
 
 (async () => {
   console.log(await wordDecliner('ua', 'Микола Петренко'));
@@ -38,7 +38,7 @@ According to:
 - http://morpher.ru/DemoKZ.aspx?s=Киев
 
 ``` js
-const wordDecliner = require('word-decliner');
+const wordDecliner = require('.');
 
 (async () => {
   console.log(await wordDecliner('ru', 'Киев', 'именительный'));
@@ -68,7 +68,7 @@ const wordDecliner = require('word-decliner');
 
 ### You can also conveniently destruct ruDecliner, uaDecliner and kzDecliner
 ``` js
-const { ruDecliner, uaDecliner, kzDecliner } = require('word-decliner');
+const { ruDecliner, uaDecliner, kzDecliner } = require('.');
 
 (async () => {
   console.log(await ruDecliner('ключ', 'д'));
@@ -94,12 +94,13 @@ const { ruDecliner, uaDecliner, kzDecliner } = require('word-decliner');
 })();
 ```
 
-### All requests are fully cached
+### All requests are fully cached during 24 hours
 ``` js
-const { uaDecliner } = require('word-decliner');
-const elapsingTime = require('elapsing-time');
+const { uaDecliner } = require('.');
+const elapsingTime = require('../elapsing-time');
 
 const timer = new elapsingTime();
+const wait = ms => new Promise(res => setTimeout(res, ms));
 
 (async () => {
   let res;
@@ -107,20 +108,33 @@ const timer = new elapsingTime();
   timer.start();
   res = await uaDecliner('слово', 'дательный');
   timer.stop(true);
-  console.log(res);
-  timer.msPrint();    // Time: 263 ms
+  console.log(res); // { case: 'давальний', value: 'слову' }
+  timer.msPrint();  // Time: 230.501 ms
 
+  await wait(500);
   timer.start();
   res = await uaDecliner('слово', 'знахідний');
   timer.stop(true);
-  console.log(res);
-  timer.msPrint();    // Time: 0 ms   // Almost instant invocation
+  console.log(res); // { case: 'знахідний', value: 'слово' }
+  timer.msPrint();  // Time: 0.523 ms   // Almost instant invocation
 
+  // await wait(24 * 3600 * 1000);  // Wait for 24 hours or more  // Too long to demonstrate
   timer.start();
   res = await uaDecliner('слово');
   timer.stop(true);
   console.log(res);
-  timer.msPrint();    // Time: 0 ms
+  timer.msPrint();  // Time: 319.122 ms
+  /*
+    [
+      { case: 'називний', value: 'слово' },
+      { case: 'родовий', value: 'слова' },
+      { case: 'давальний', value: 'слову' },
+      { case: 'знахідний', value: 'слово' },
+      { case: 'орудний', value: 'словом' },
+      { case: 'місцевий', value: 'слові' },
+      { case: 'кличний', value: 'слове' },
+    ]
+  */
 })();
 ```
 
@@ -128,5 +142,7 @@ const timer = new elapsingTime();
 
 <seeAlsoTitle>
 - [decline-word](<npmjs-com>/package/decline-word)
+- [elapsing-time](<npmjs-com>/package/elapsing-time)
+- [temp-object](<npmjs-com>/package/temp-object)
 
 <suggestions>

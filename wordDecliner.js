@@ -2,6 +2,7 @@
 
 const axios = require('axios');
 const cheerio = require('cheerio');
+const TempObject = require('temp-object');
 
 const formUrl = (lang, phrase) => `http://morpher.ru/Demo${lang === 'ru' ? '' : lang.toUpperCase()}.aspx?s=${phrase}`;
 
@@ -86,7 +87,7 @@ const getData = {
   kz: getKz,
 };
 
-const cache = Object.keys(getData).reduce((obj, key) => (obj[key] = {}, obj), {});
+const cache = Object.keys(getData).reduce((obj, key) => (obj[key] = new TempObject(), obj), {});
 
 async function wordDecliner(langArg, phrase, chosenCase = null) {
   const lang = String(langArg).toLowerCase();

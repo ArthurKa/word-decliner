@@ -1,10 +1,10 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/word-decliner/1.0.11?style=flat-square "All dependencies of word-decliner@1.0.11")](https://libraries.io/npm/word-decliner/1.0.11)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/word-decliner@1.0.11?style=flat-square "Reported vulnerabilities of word-decliner@1.0.11")](https://snyk.io/test/npm/word-decliner/1.0.11)
-[![NPM-version](https://img.shields.io/badge/npm-v1.0.11-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/word-decliner/v/1.0.11)
-[![Install size](https://flat.badgen.net/packagephobia/install/word-decliner@1.0.11?label=size 'Install size of word-decliner@1.0.11')](https://packagephobia.now.sh/result?p=word-decliner@1.0.11)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/word-decliner/1.0.12?style=flat-square "All dependencies of word-decliner@1.0.12")](https://libraries.io/npm/word-decliner/1.0.12)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/word-decliner@1.0.12?style=flat-square "Reported vulnerabilities of word-decliner@1.0.12")](https://snyk.io/test/npm/word-decliner/1.0.12)
+[![NPM-version](https://img.shields.io/badge/npm-v1.0.12-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/word-decliner/v/1.0.12)
+[![Install size](https://flat.badgen.net/packagephobia/install/word-decliner@1.0.12?label=size 'Install size of word-decliner@1.0.12')](https://packagephobia.now.sh/result?p=word-decliner@1.0.12)
 [![Total downloads](https://img.shields.io/npm/dt/word-decliner?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=word-decliner)
 
-# word-decliner@1.0.11
+# word-decliner@1.0.12
 
 Helps you to decline words such as names, single or even combination of words via Morpher service located on http://morpher.ru/Demo.aspx in three available languages: Russian, Ukrainian and Kazakh.\
 Maybe it works for some other languages, who knows.
@@ -12,7 +12,7 @@ Maybe it works for some other languages, who knows.
 ## Installation
 `word-decliner` is available via npm:
 ``` bash
-$ npm i word-decliner@1.0.11
+$ npm i word-decliner@1.0.12
 ```
 
 ## Usage
@@ -104,12 +104,13 @@ const { ruDecliner, uaDecliner, kzDecliner } = require('word-decliner');
 })();
 ```
 
-### All requests are fully cached
+### All requests are fully cached during 24 hours
 ``` js
 const { uaDecliner } = require('word-decliner');
 const elapsingTime = require('elapsing-time');
 
 const timer = new elapsingTime();
+const wait = ms => new Promise(res => setTimeout(res, ms));
 
 (async () => {
   let res;
@@ -117,20 +118,33 @@ const timer = new elapsingTime();
   timer.start();
   res = await uaDecliner('слово', 'дательный');
   timer.stop(true);
-  console.log(res);
-  timer.msPrint();    // Time: 263 ms
+  console.log(res); // { case: 'давальний', value: 'слову' }
+  timer.msPrint();  // Time: 230.501 ms
 
+  await wait(500);
   timer.start();
   res = await uaDecliner('слово', 'знахідний');
   timer.stop(true);
-  console.log(res);
-  timer.msPrint();    // Time: 0 ms   // Almost instant invocation
+  console.log(res); // { case: 'знахідний', value: 'слово' }
+  timer.msPrint();  // Time: 0.523 ms   // Almost instant invocation
 
+  // await wait(24 * 3600 * 1000);  // Wait for 24 hours or more  // Too long to demonstrate
   timer.start();
   res = await uaDecliner('слово');
   timer.stop(true);
   console.log(res);
-  timer.msPrint();    // Time: 0 ms
+  timer.msPrint();  // Time: 319.122 ms
+  /*
+    [
+      { case: 'називний', value: 'слово' },
+      { case: 'родовий', value: 'слова' },
+      { case: 'давальний', value: 'слову' },
+      { case: 'знахідний', value: 'слово' },
+      { case: 'орудний', value: 'словом' },
+      { case: 'місцевий', value: 'слові' },
+      { case: 'кличний', value: 'слове' },
+    ]
+  */
 })();
 ```
 
@@ -139,6 +153,8 @@ No testing functionality provided.
 
 ## See also
 - [decline-word](https://www.npmjs.com/package/decline-word)
+- [elapsing-time](https://www.npmjs.com/package/elapsing-time)
+- [temp-object](https://www.npmjs.com/package/temp-object)
 
 ---
 
