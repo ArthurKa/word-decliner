@@ -1,9 +1,11 @@
 {
   "name": "word-decliner",
-  "version": "1.0.12",
+  "version": "1.1.0",
   "description": "Declines words such as names, single or even combination of words via Morpher service.",
-  "main": "wordDecliner.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "keywords": [
+    "word-decliner",
     "decline-word",
     "word-declination",
     "word-declension",
@@ -12,7 +14,15 @@
     "ФИО",
     "склонение-слов"
   ],
-  "scripts": {},
+  "scripts": {
+    "build:clean": "rm -rf build/*",
+    "ts-compile": "tsc --declaration",
+    "my-compile": "node ../compile.js",
+    "build": "npm run build:clean && npm run ts-compile && npm run my-compile",
+    "publish:prepare": "mkdir -p ./build/build && mv ./build/* ./build/build; cp -r ./package* ./README.md ./build",
+    "pu": "npm pu ./build",
+    "my-publish": "npm run publish:prepare && npm run pu"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ArthurKa/word-decliner.git"
@@ -27,8 +37,12 @@
   },
   "homepage": "https://github.com/ArthurKa/word-decliner#readme",
   "dependencies": {
-    "axios": "^0.19.0",
-    "cheerio": "^1.0.0-rc.3",
-    "temp-object": "^1.0.1"
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
+    "temp-object": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "typescript": "^4.2.3"
   }
 }

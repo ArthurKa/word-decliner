@@ -1,25 +1,29 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/word-decliner/1.0.12?style=flat-square "All dependencies of word-decliner@1.0.12")](https://libraries.io/npm/word-decliner/1.0.12)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/word-decliner@1.0.12?style=flat-square "Reported vulnerabilities of word-decliner@1.0.12")](https://snyk.io/test/npm/word-decliner/1.0.12)
-[![NPM-version](https://img.shields.io/badge/npm-v1.0.12-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/word-decliner/v/1.0.12)
-[![Install size](https://flat.badgen.net/packagephobia/install/word-decliner@1.0.12?label=size 'Install size of word-decliner@1.0.12')](https://packagephobia.now.sh/result?p=word-decliner@1.0.12)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/word-decliner/1.1.0?style=flat-square "All dependencies of word-decliner@1.1.0")](https://libraries.io/npm/word-decliner/1.1.0)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/word-decliner@1.1.0?style=flat-square "Reported vulnerabilities of word-decliner@1.1.0")](https://snyk.io/test/npm/word-decliner/1.1.0)
+[![Commits](https://flat.badgen.net/github/commits/ArthurKa/word-decliner)](https://github.com/ArthurKa/word-decliner/commits/master)
+[![NPM-version](https://img.shields.io/badge/npm-v1.1.0-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/word-decliner/v/1.1.0)
 [![Total downloads](https://img.shields.io/npm/dt/word-decliner?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=word-decliner)
+[![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "Have any questions? You are always welcome.")](https://github.com/ArthurKa/word-decliner/issues)\
+[![Publish size](https://flat.badgen.net/packagephobia/publish/word-decliner@1.1.0?label=publish 'Publish size of word-decliner@1.1.0')](https://packagephobia.now.sh/result?p=word-decliner@1.1.0)
+[![Install size](https://flat.badgen.net/packagephobia/install/word-decliner@1.1.0?label=install 'Install size of word-decliner@1.1.0')](https://packagephobia.now.sh/result?p=word-decliner@1.1.0)
+[![Minified size](https://img.shields.io/bundlephobia/min/word-decliner@1.1.0?style=flat-square&label=minified "Minified size of word-decliner@1.1.0")](https://bundlephobia.com/result?p=word-decliner@1.1.0)
+[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/word-decliner@1.1.0?style=flat-square&label=minzipped "Minified + gzipped size of word-decliner@1.1.0")](https://bundlephobia.com/result?p=word-decliner@1.1.0)
 
-# word-decliner@1.0.12
+# word-decliner@1.1.0
 
 Helps you to decline words such as names, single or even combination of words via Morpher service located on http://morpher.ru/Demo.aspx in three available languages: Russian, Ukrainian and Kazakh.\
 Maybe it works for some other languages, who knows.
 
 ## Installation
 `word-decliner` is available via npm:
-``` bash
-$ npm i word-decliner@1.0.12
+```bash
+$ npm i word-decliner@1.1.0
 ```
 
 ## Usage
 According to http://morpher.ru/DemoUA.aspx?s=Микола%20Петренко
-``` js
-const wordDecliner = require('word-decliner');
-const { uaDecliner } = require('word-decliner');
+```ts
+import wordDecliner, { uaDecliner } from 'word-decliner';
 
 (async () => {
   console.log(await wordDecliner('ua', 'Микола Петренко'));
@@ -47,8 +51,8 @@ According to:
 - http://morpher.ru/DemoUA.aspx?s=Київ
 - http://morpher.ru/DemoKZ.aspx?s=Киев
 
-``` js
-const wordDecliner = require('word-decliner');
+```ts
+import wordDecliner from 'word-decliner';
 
 (async () => {
   console.log(await wordDecliner('ru', 'Киев', 'именительный'));
@@ -77,8 +81,8 @@ const wordDecliner = require('word-decliner');
 ```
 
 ### You can also conveniently destruct ruDecliner, uaDecliner and kzDecliner
-``` js
-const { ruDecliner, uaDecliner, kzDecliner } = require('word-decliner');
+```ts
+import { ruDecliner, uaDecliner, kzDecliner } from 'word-decliner';
 
 (async () => {
   console.log(await ruDecliner('ключ', 'д'));
@@ -105,35 +109,34 @@ const { ruDecliner, uaDecliner, kzDecliner } = require('word-decliner');
 ```
 
 ### All requests are fully cached during 24 hours
-``` js
-const { uaDecliner } = require('word-decliner');
-const elapsingTime = require('elapsing-time');
+```ts
+import { uaDecliner } from 'word-decliner';
+import elapsingTime from 'elapsing-time';
+
+const wait = (ms: number) => new Promise(res => setTimeout(res, ms));
 
 const timer = new elapsingTime();
-const wait = ms => new Promise(res => setTimeout(res, ms));
 
 (async () => {
-  let res;
-
   timer.start();
-  res = await uaDecliner('слово', 'дательный');
+  const res1 = await uaDecliner('слово', 'дательный');
   timer.stop(true);
-  console.log(res); // { case: 'давальний', value: 'слову' }
-  timer.msPrint();  // Time: 230.501 ms
+  console.log(res1); // { case: 'давальний', value: 'слову' }
+  timer.msPrint();  // Time: 357.278 ms
 
   await wait(500);
   timer.start();
-  res = await uaDecliner('слово', 'знахідний');
+  const res2 = await uaDecliner('слово', 'знахідний');
   timer.stop(true);
-  console.log(res); // { case: 'знахідний', value: 'слово' }
-  timer.msPrint();  // Time: 0.523 ms   // Almost instant invocation
+  console.log(res2); // { case: 'знахідний', value: 'слово' }
+  timer.msPrint();  // Time: 0.17 ms   // Almost instant invocation
 
   // await wait(24 * 3600 * 1000);  // Wait for 24 hours or more  // Too long to demonstrate
   timer.start();
-  res = await uaDecliner('слово');
+  const res3 = await uaDecliner('слово');
   timer.stop(true);
-  console.log(res);
-  timer.msPrint();  // Time: 319.122 ms
+  console.log(res3);
+  timer.msPrint();  // Time: 319.122 ms  // Again not instant because of expired cache
   /*
     [
       { case: 'називний', value: 'слово' },
@@ -149,7 +152,7 @@ const wait = ms => new Promise(res => setTimeout(res, ms));
 ```
 
 ## Testing
-No testing functionality provided.
+Manually tested by developer. Automated tests are not provided.
 
 ## See also
 - [decline-word](https://www.npmjs.com/package/decline-word)
@@ -158,4 +161,4 @@ No testing functionality provided.
 
 ---
 
-Your improve suggestions and bug reports are welcome any time.
+Your improve suggestions and bug reports [are welcome](https://github.com/ArthurKa/word-decliner/issues) any time.

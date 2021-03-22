@@ -7,9 +7,8 @@ Maybe it works for some other languages, who knows.
 
 ## Usage
 According to http://morpher.ru/DemoUA.aspx?s=Микола%20Петренко
-``` js
-const wordDecliner = require('.');
-const { uaDecliner } = require('.');
+```ts
+import wordDecliner, { uaDecliner } from './word-decliner/src';
 
 (async () => {
   console.log(await wordDecliner('ua', 'Микола Петренко'));
@@ -37,8 +36,8 @@ According to:
 - http://morpher.ru/DemoUA.aspx?s=Київ
 - http://morpher.ru/DemoKZ.aspx?s=Киев
 
-``` js
-const wordDecliner = require('.');
+```ts
+import wordDecliner from './word-decliner/src';
 
 (async () => {
   console.log(await wordDecliner('ru', 'Киев', 'именительный'));
@@ -67,8 +66,8 @@ const wordDecliner = require('.');
 ```
 
 ### You can also conveniently destruct ruDecliner, uaDecliner and kzDecliner
-``` js
-const { ruDecliner, uaDecliner, kzDecliner } = require('.');
+```ts
+import { ruDecliner, uaDecliner, kzDecliner } from './word-decliner/src';
 
 (async () => {
   console.log(await ruDecliner('ключ', 'д'));
@@ -95,35 +94,34 @@ const { ruDecliner, uaDecliner, kzDecliner } = require('.');
 ```
 
 ### All requests are fully cached during 24 hours
-``` js
-const { uaDecliner } = require('.');
-const elapsingTime = require('../elapsing-time');
+```ts
+import { uaDecliner } from './word-decliner/src';
+import elapsingTime from './elapsing-time/src';
+
+const wait = (ms: number) => new Promise(res => setTimeout(res, ms));
 
 const timer = new elapsingTime();
-const wait = ms => new Promise(res => setTimeout(res, ms));
 
 (async () => {
-  let res;
-
   timer.start();
-  res = await uaDecliner('слово', 'дательный');
+  const res1 = await uaDecliner('слово', 'дательный');
   timer.stop(true);
-  console.log(res); // { case: 'давальний', value: 'слову' }
-  timer.msPrint();  // Time: 230.501 ms
+  console.log(res1); // { case: 'давальний', value: 'слову' }
+  timer.msPrint();  // Time: 357.278 ms
 
   await wait(500);
   timer.start();
-  res = await uaDecliner('слово', 'знахідний');
+  const res2 = await uaDecliner('слово', 'знахідний');
   timer.stop(true);
-  console.log(res); // { case: 'знахідний', value: 'слово' }
-  timer.msPrint();  // Time: 0.523 ms   // Almost instant invocation
+  console.log(res2); // { case: 'знахідний', value: 'слово' }
+  timer.msPrint();  // Time: 0.17 ms   // Almost instant invocation
 
   // await wait(24 * 3600 * 1000);  // Wait for 24 hours or more  // Too long to demonstrate
   timer.start();
-  res = await uaDecliner('слово');
+  const res3 = await uaDecliner('слово');
   timer.stop(true);
-  console.log(res);
-  timer.msPrint();  // Time: 319.122 ms
+  console.log(res3);
+  timer.msPrint();  // Time: 319.122 ms  // Again not instant because of expired cache
   /*
     [
       { case: 'називний', value: 'слово' },
