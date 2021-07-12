@@ -45,7 +45,7 @@ export type IKzCase = (
   | { ru: 'творительный'; kz: 'көмектес'; }
 );
 export type KzNumber = 'саны' | 'менiң' | 'сенiң' | 'сіздiң' | 'оның' | 'біздiң' | 'сендердiң' | 'сіздердiң' | 'олардың';
-export type IKzNumber =  {
+export type IKzNumber = {
   [key in KzNumber]: [string, string];
 }
 export interface KzDeclension extends IKzNumber {

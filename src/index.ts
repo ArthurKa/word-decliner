@@ -41,10 +41,10 @@ function chooseDeclension(declensionArr: RuDeclension[] | UaDeclension[] | KzDec
   const chosenCaseArr = cases.find(e => e.includes(loweCase)) || [loweCase];
   if(isKzDeclansionArr(declensionArr)) {
     return declensionArr.find(e => chosenCaseArr.includes(e.case) || chosenCaseArr.includes(e.kzCase as Case)) || null;
-  } else {
-    return (declensionArr as (RuDeclension | UaDeclension)[]).find(e => chosenCaseArr.includes(e.case)) || null;
   }
-};
+
+  return (declensionArr as (RuDeclension | UaDeclension)[]).find(e => chosenCaseArr.includes(e.case)) || null;
+}
 
 function getRuUa($: CheerioRoot) {
   const casesAccordance: Record<`${IRuCase['short']}:`, IRuCase['full']> = {
@@ -57,9 +57,9 @@ function getRuUa($: CheerioRoot) {
     'м:': 'местный',
   };
 
-  const getCase = (caseName: `${IRuCase['short']}:` | IRuCase['full'] | IUaCase['full']) => {
-    return isObjectKey(casesAccordance, caseName) ? casesAccordance[caseName] : caseName;
-  };
+  const getCase = (caseName: `${IRuCase['short']}:` | IRuCase['full'] | IUaCase['full']) => (
+    isObjectKey(casesAccordance, caseName) ? casesAccordance[caseName] : caseName
+  );
   const get = (e: Cheerio, selector: string) => e.find(selector).text().trim();
 
   const selector = '#ctl00_ctl00_ctl00_BodyPlaceHolder_ContentPlaceHolder1_ContentPlaceHolder1_TABLE1 > tbody > tr';
@@ -91,8 +91,8 @@ function getKz($: CheerioRoot): KzDeclension[] {
       .map(e => $(e)
         .text()
         .trim()
-        .toLowerCase()
-      )
+        .toLowerCase(),
+      ),
     ) as [string[], string[]];
 
   for(let i = 0; i < cases.length; i++) {
@@ -105,8 +105,8 @@ function getKz($: CheerioRoot): KzDeclension[] {
 
     for(let j = 0; j < rows.length; j += 2) {
       const key = j === 0 ? 'саны' : $(rows[j]).find('> td:first-child').text().trim().toLowerCase() as KzNumber;
-      const value1 = $(rows[j]).find(`> td:nth-child(${i+2})`).text().trim();
-      const value2 = $(rows[j+1]).find(`> td:nth-child(${i+2})`).text().trim();
+      const value1 = $(rows[j]).find(`> td:nth-child(${i + 2})`).text().trim();
+      const value2 = $(rows[j + 1]).find(`> td:nth-child(${i + 2})`).text().trim();
       obj[key] = [value1, value2];
     }
     arr.push(obj);
@@ -127,11 +127,12 @@ function getData(lang: Lang) {
     case 'kz':
       return getKz;
   }
-};
+}
 
 const LANGS: Lang[] = ['ru', 'ua', 'kz'];
 
 const cache = LANGS.reduce((obj, key) => {
+  // eslint-disable-next-line no-param-reassign
   obj[key] = new TempObject();
   return obj;
 }, {} as {
@@ -140,14 +141,14 @@ const cache = LANGS.reduce((obj, key) => {
   kz: Record<string, KzDeclension[] | undefined>;
 });
 
-export default async function wordDecliner(langArg: 'ru', phrase: string): Promise<RuDeclension[]>;
-export default async function wordDecliner(langArg: 'ru', phrase: string, chosenCase: Case): Promise<RuDeclension>;
-export default async function wordDecliner(langArg: 'ua', phrase: string): Promise<UaDeclension[]>;
-export default async function wordDecliner(langArg: 'ua', phrase: string, chosenCase: Case): Promise<UaDeclension>;
-export default async function wordDecliner(langArg: 'kz', phrase: string): Promise<KzDeclension[]>;
-export default async function wordDecliner(langArg: 'kz', phrase: string, chosenCase: Case): Promise<KzDeclension>;
+async function wordDecliner(langArg: 'ru', phrase: string): Promise<RuDeclension[]>;
+async function wordDecliner(langArg: 'ru', phrase: string, chosenCase: Case): Promise<RuDeclension>;
+async function wordDecliner(langArg: 'ua', phrase: string): Promise<UaDeclension[]>;
+async function wordDecliner(langArg: 'ua', phrase: string, chosenCase: Case): Promise<UaDeclension>;
+async function wordDecliner(langArg: 'kz', phrase: string): Promise<KzDeclension[]>;
+async function wordDecliner(langArg: 'kz', phrase: string, chosenCase: Case): Promise<KzDeclension>;
 
-export default async function wordDecliner(langArg: Lang, phrase: string, chosenCase?: Case) {
+async function wordDecliner(langArg: Lang, phrase: string, chosenCase?: Case) {
   const lang = String(langArg).toLowerCase() as Lang;
   if(!LANGS.includes(lang)) {
     const langs = LANGS.map(e => `'${e}'`).join(', ');
@@ -180,6 +181,7 @@ export default async function wordDecliner(langArg: Lang, phrase: string, chosen
     }
   }
 }
+export default wordDecliner;
 
 
 type P = Parameters<typeof wordDecliner>;
