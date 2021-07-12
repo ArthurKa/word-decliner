@@ -1,15 +1,15 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/word-decliner/1.1.0?style=flat-square "All dependencies of word-decliner@1.1.0")](https://libraries.io/npm/word-decliner/1.1.0)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/word-decliner@1.1.0?style=flat-square "Reported vulnerabilities of word-decliner@1.1.0")](https://snyk.io/test/npm/word-decliner/1.1.0)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/word-decliner/1.2.0?style=flat-square "All dependencies of word-decliner@1.2.0")](https://libraries.io/npm/word-decliner/1.2.0)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/word-decliner@1.2.0?style=flat-square "Reported vulnerabilities of word-decliner@1.2.0")](https://snyk.io/test/npm/word-decliner/1.2.0)
 [![Commits](https://flat.badgen.net/github/commits/ArthurKa/word-decliner)](https://github.com/ArthurKa/word-decliner/commits/master)
-[![NPM-version](https://img.shields.io/badge/npm-v1.1.0-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/word-decliner/v/1.1.0)
+[![NPM-version](https://img.shields.io/badge/npm-v1.2.0-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/word-decliner/v/1.2.0)
 [![Total downloads](https://img.shields.io/npm/dt/word-decliner?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=word-decliner)
 [![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "GitHub")](https://github.com/ArthurKa)\
-[![Publish size](https://flat.badgen.net/packagephobia/publish/word-decliner@1.1.0?label=publish 'Publish size of word-decliner@1.1.0')](https://packagephobia.now.sh/result?p=word-decliner@1.1.0)
-[![Install size](https://flat.badgen.net/packagephobia/install/word-decliner@1.1.0?label=install 'Install size of word-decliner@1.1.0')](https://packagephobia.now.sh/result?p=word-decliner@1.1.0)
-[![Minified size](https://img.shields.io/bundlephobia/min/word-decliner@1.1.0?style=flat-square&label=minified "Minified size of word-decliner@1.1.0")](https://bundlephobia.com/result?p=word-decliner@1.1.0)
-[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/word-decliner@1.1.0?style=flat-square&label=minzipped "Minified + gzipped size of word-decliner@1.1.0")](https://bundlephobia.com/result?p=word-decliner@1.1.0)
+[![Publish size](https://flat.badgen.net/packagephobia/publish/word-decliner@1.2.0?label=publish 'Publish size of word-decliner@1.2.0')](https://packagephobia.now.sh/result?p=word-decliner@1.2.0)
+[![Install size](https://flat.badgen.net/packagephobia/install/word-decliner@1.2.0?label=install 'Install size of word-decliner@1.2.0')](https://packagephobia.now.sh/result?p=word-decliner@1.2.0)
+[![Minified size](https://img.shields.io/bundlephobia/min/word-decliner@1.2.0?style=flat-square&label=minified "Minified size of word-decliner@1.2.0")](https://bundlephobia.com/result?p=word-decliner@1.2.0)
+[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/word-decliner@1.2.0?style=flat-square&label=minzipped "Minified + gzipped size of word-decliner@1.2.0")](https://bundlephobia.com/result?p=word-decliner@1.2.0)
 
-# word-decliner@1.1.0
+# word-decliner@1.2.0
 
 Helps you to decline words such as names, single or even combination of words via Morpher service located on http://morpher.ru/Demo.aspx in three available languages: Russian, Ukrainian and Kazakh.\
 Maybe it works for some other languages, who knows.
@@ -17,7 +17,7 @@ Maybe it works for some other languages, who knows.
 ## Installation
 `word-decliner` is available via NPM:
 ```bash
-$ npm i word-decliner@1.1.0
+$ npm i word-decliner@1.2.0
 ```
 
 ## Usage
