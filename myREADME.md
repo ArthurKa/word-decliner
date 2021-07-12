@@ -93,12 +93,12 @@ import { ruDecliner, uaDecliner, kzDecliner } from './word-decliner/src';
 })();
 ```
 
-### All requests are fully cached during 24 hours
+### All requests are fully cached within 24 hours of the last use
 ```ts
 import { uaDecliner } from './word-decliner/src';
 import elapsingTime from './elapsing-time/src';
 
-const wait = (ms: number) => new Promise(res => setTimeout(res, ms));
+const wait = (ms: number) => new Promise<void>(res => setTimeout(res, ms));
 
 const timer = new elapsingTime();
 

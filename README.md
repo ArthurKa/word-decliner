@@ -3,7 +3,7 @@
 [![Commits](https://flat.badgen.net/github/commits/ArthurKa/word-decliner)](https://github.com/ArthurKa/word-decliner/commits/master)
 [![NPM-version](https://img.shields.io/badge/npm-v1.1.0-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/word-decliner/v/1.1.0)
 [![Total downloads](https://img.shields.io/npm/dt/word-decliner?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=word-decliner)
-[![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "Have any questions? You are always welcome.")](https://github.com/ArthurKa/word-decliner/issues)\
+[![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "GitHub")](https://github.com/ArthurKa)\
 [![Publish size](https://flat.badgen.net/packagephobia/publish/word-decliner@1.1.0?label=publish 'Publish size of word-decliner@1.1.0')](https://packagephobia.now.sh/result?p=word-decliner@1.1.0)
 [![Install size](https://flat.badgen.net/packagephobia/install/word-decliner@1.1.0?label=install 'Install size of word-decliner@1.1.0')](https://packagephobia.now.sh/result?p=word-decliner@1.1.0)
 [![Minified size](https://img.shields.io/bundlephobia/min/word-decliner@1.1.0?style=flat-square&label=minified "Minified size of word-decliner@1.1.0")](https://bundlephobia.com/result?p=word-decliner@1.1.0)
@@ -15,7 +15,7 @@ Helps you to decline words such as names, single or even combination of words vi
 Maybe it works for some other languages, who knows.
 
 ## Installation
-`word-decliner` is available via npm:
+`word-decliner` is available via NPM:
 ```bash
 $ npm i word-decliner@1.1.0
 ```
@@ -108,12 +108,12 @@ import { ruDecliner, uaDecliner, kzDecliner } from 'word-decliner';
 })();
 ```
 
-### All requests are fully cached during 24 hours
+### All requests are fully cached within 24 hours of the last use
 ```ts
 import { uaDecliner } from 'word-decliner';
 import elapsingTime from 'elapsing-time';
 
-const wait = (ms: number) => new Promise(res => setTimeout(res, ms));
+const wait = (ms: number) => new Promise<void>(res => setTimeout(res, ms));
 
 const timer = new elapsingTime();
 
@@ -152,7 +152,7 @@ const timer = new elapsingTime();
 ```
 
 ## Testing
-Manually tested by developer. Automated tests are not provided.
+Manually tested by the developer during development. Automated tests are not provided.
 
 ## See also
 - [decline-word](https://www.npmjs.com/package/decline-word)
